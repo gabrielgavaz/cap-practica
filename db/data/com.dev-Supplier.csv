@@ -1,0 +1,6 @@
+ID,Name,Street,City,State,PostalCode,Country,Email,Phone,Fax
+"8e2b1234-5678-90ab-cdef-1234567890ab","Supplier A","123 Main St","Springfield","IL","62701","USA","contact@supplierA.com","555-1234","555-5678"
+"9f2c2345-6789-01bc-def0-2345678901bc","Supplier B","456 Elm St","Shelbyville","MO","63469","USA","info@supplierB.com","555-8765","555-4321"
+"af3d3456-7890-12cd-ef01-3456789012cd","Supplier C","789 Oak St","Ogdenville","TX","78901","USA","sales@supplierC.com","555-1357","555-2468"
+"bf4e4567-8901-23de-f012-4567890123de","Supplier D","101 Pine St","Capitol City","CA","90001","USA","support@supplierD.com","555-9753","555-8642"
+"cf5f5678-9012-34ef-0123-5678901234ef","Supplier E","202 Maple St","North Haverbrook","NY","10001","USA","service@supplierE.com","555-8520","555-7410"
