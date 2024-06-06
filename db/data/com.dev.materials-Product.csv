@@ -1,4 +1,4 @@
-ID,Name,Description,ReleasedDate,DiscontinuedDate,Price,Height,Weight,Depth,Quantity,Supplier_ID
+ID,Name,Description,ReleasedDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity,Supplier_ID
 "b1c2d345-6789-01bc-def0-1234567890ab","Alfa Widget","Descripción del Alfa Widget","2021-01-15T10:00:00Z",,150.50,10.5,1.2,5.0,100.0,
 "c2d3e456-7890-12cd-ef01-2345678901bc","Beta Gadget","Descripción del Beta Gadget","2021-03-20T11:00:00Z",,99.99,15.0,1.5,4.0,200.0,"af3d3456-7890-12cd-ef01-3456789012cd"
 "d3e4f567-8901-23de-f012-3456789012cd","Gamma Device","Descripción del Gamma Device","2021-05-25T12:00:00Z",,75.75,8.0,1.0,3.5,150.0,"cf5f5678-9012-34ef-0123-5678901234ef"

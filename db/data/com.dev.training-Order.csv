@@ -1,0 +1,9 @@
+ClientEmail,FirstName,LastName,CreatedOn,Reviewed,Approved
+"john.doe@example.com","John","Doe","2023-01-10",true,true
+"jane.smith@example.com","Jane","Smith","2023-01-15",false,false
+"robert.johnson@example.com","Robert","Johnson","2023-02-01",true,false
+"linda.brown@example.com","Linda","Brown","2023-02-20",true,true
+"michael.wilson@example.com","Michael","Wilson","2023-03-05",false,true
+"susan.moore@example.com","Susan","Moore","2023-03-18",true,false
+"william.taylor@example.com","William","Taylor","2023-04-02",false,false
+"elizabeth.anderson@example.com","Elizabeth","Anderson","2023-04-25",true,true

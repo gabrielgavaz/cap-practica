@@ -1,0 +1,20 @@
+### GetOrder ###
+
+GET http://localhost:4004/odata/v4/managed-order/getOrder
+
+
+### GetOrder ###
+
+GET http://localhost:4004/odata/v4/managed-order/getOrder('robert.johnson@example.com')
+
+
+### CreateOrder ###
+POST http://localhost:4004/odata/v4/managed-order/createOrder HTTP/1.1
+Content-Type: application/json
+
+{
+    "ClientEmail": "gavazgabriel@gmail.com",
+    "FirstName": "gabriel",
+    "LastName": "gavaz",
+    "CreatedOn":"2024-10-10"
+}
