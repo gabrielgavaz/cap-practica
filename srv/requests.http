@@ -1,15 +1,15 @@
 ### GetOrder ###
 
-GET http://localhost:4004/odata/v4/managed-order/getOrder
+GET http://localhost:4004/odata/v4/managed-order/Order
 
 
 ### GetOrder ###
 
-GET http://localhost:4004/odata/v4/managed-order/getOrder('robert.johnson@example.com')
+GET http://localhost:4004/odata/v4/managed-order/Order('robert.johnson@example.com')
 
 
 ### CreateOrder ###
-POST http://localhost:4004/odata/v4/managed-order/createOrder HTTP/1.1
+POST http://localhost:4004/odata/v4/managed-order/Order HTTP/1.1
 Content-Type: application/json
 
 {
@@ -18,3 +18,41 @@ Content-Type: application/json
     "LastName": "gavaz",
     "CreatedOn":"2024-10-10"
 }
+
+
+### updateOrder ###
+PUT http://localhost:4004/odata/v4/managed-order/Order('robert.johnson@example.com') HTTP/1.1
+Content-Type: application/json
+
+{
+    "FirstName": "reobertito",
+    "LastName": "jhony"
+}
+
+### deleteOrder ###
+DELETE http://localhost:4004/odata/v4/managed-order/Order('gavazgabriel@gmail.com')
+
+###FUNCTION###
+GET http://localhost:4004/odata/v4/managed-order/getClientTaxRate(ClientEmail='john.doe@example.com')
+
+
+### ACTION ####
+POST http://localhost:4004/odata/v4/managed-order/cancelOrder
+Content-Type: application/json
+
+{"ClientEmail" : "jane.smith@example.com"}
+
+
+###FUNCTION###
+GET http://localhost:4004/odata/v4/managed-order/Order('jane.smith@example.com')/ManagedOrder.getClientTaxRate(ClientEmail='john.doe@example.com')
+
+
+### ACTION ####
+POST http://localhost:4004/odata/v4/managed-order/Order('jane.smith@example.com')/ManagedOrder.cancelOrder
+Content-Type: application/json
+
+{"ClientEmail" : "jane.smith@example.com"}
+
+
+### SERVICIO EXTERNO ###
+GET http://localhost:4004/odata/v4/sap-backend-exit/Incidents

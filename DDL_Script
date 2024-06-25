@@ -1,5 +1,5 @@
 
-CREATE TABLE com_dev_Product (
+CREATE TABLE com_dev_materials_Product (
   createdAt TIMESTAMP_TEXT,
   createdBy NVARCHAR(255),
   modifiedAt TIMESTAMP_TEXT,
@@ -11,7 +11,7 @@ CREATE TABLE com_dev_Product (
   DiscontinuedDate DATETIME_TEXT,
   Price DECIMAL(16, 2),
   Height DECIMAL(16, 2),
-  Weight DECIMAL(16, 2),
+  Width DECIMAL(16, 2),
   Depth DECIMAL(16, 2),
   Quantity DECIMAL(16, 2),
   Supplier_ID NVARCHAR(36),
@@ -19,10 +19,71 @@ CREATE TABLE com_dev_Product (
   Currency_ID NVARCHAR(3),
   DimensionUnit_ID NVARCHAR(2),
   Category_ID NVARCHAR(1),
+  AvgReview DECIMAL(16, 2),
   PRIMARY KEY(ID)
 );
 
-CREATE TABLE com_dev_Order (
+CREATE TABLE com_dev_materials_Category (
+  createdAt TIMESTAMP_TEXT,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP_TEXT,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(1) NOT NULL,
+  Name NVARCHAR(255),
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE com_dev_materials_StockAvailibity (
+  createdAt TIMESTAMP_TEXT,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP_TEXT,
+  modifiedBy NVARCHAR(255),
+  ID INTEGER NOT NULL,
+  Description NVARCHAR(255),
+  Product_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE com_dev_materials_Currencies (
+  ID NVARCHAR(3) NOT NULL,
+  Description NVARCHAR(255),
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE com_dev_materials_UnitOfMeasures (
+  createdAt TIMESTAMP_TEXT,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP_TEXT,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(2) NOT NULL,
+  Description NVARCHAR(255),
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE com_dev_materials_DimensionUnits (
+  createdAt TIMESTAMP_TEXT,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP_TEXT,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(2) NOT NULL,
+  Description NVARCHAR(255),
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE com_dev_materials_ProductReview (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP_TEXT,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP_TEXT,
+  modifiedBy NVARCHAR(255),
+  Name NVARCHAR(255),
+  Raiting INTEGER,
+  Comment NVARCHAR(255),
+  Product_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE com_dev_sales_Order (
   ID NVARCHAR(36) NOT NULL,
   createdAt TIMESTAMP_TEXT,
   createdBy NVARCHAR(255),
@@ -33,7 +94,7 @@ CREATE TABLE com_dev_Order (
   PRIMARY KEY(ID)
 );
 
-CREATE TABLE com_dev_OrderItem (
+CREATE TABLE com_dev_sales_OrderItem (
   ID NVARCHAR(36) NOT NULL,
   createdAt TIMESTAMP_TEXT,
   createdBy NVARCHAR(255),
@@ -45,7 +106,7 @@ CREATE TABLE com_dev_OrderItem (
   PRIMARY KEY(ID)
 );
 
-CREATE TABLE com_dev_Supplier (
+CREATE TABLE com_dev_sales_Supplier (
   ID NVARCHAR(36) NOT NULL,
   createdAt TIMESTAMP_TEXT,
   createdBy NVARCHAR(255),
@@ -63,54 +124,7 @@ CREATE TABLE com_dev_Supplier (
   PRIMARY KEY(ID)
 );
 
-CREATE TABLE com_dev_Category (
-  createdAt TIMESTAMP_TEXT,
-  createdBy NVARCHAR(255),
-  modifiedAt TIMESTAMP_TEXT,
-  modifiedBy NVARCHAR(255),
-  ID NVARCHAR(1) NOT NULL,
-  Name NVARCHAR(255),
-  PRIMARY KEY(ID)
-);
-
-CREATE TABLE com_dev_StockAvailibity (
-  createdAt TIMESTAMP_TEXT,
-  createdBy NVARCHAR(255),
-  modifiedAt TIMESTAMP_TEXT,
-  modifiedBy NVARCHAR(255),
-  ID INTEGER NOT NULL,
-  Description NVARCHAR(255),
-  Product_ID NVARCHAR(36),
-  PRIMARY KEY(ID)
-);
-
-CREATE TABLE com_dev_Currencies (
-  ID NVARCHAR(3) NOT NULL,
-  Description NVARCHAR(255),
-  PRIMARY KEY(ID)
-);
-
-CREATE TABLE com_dev_UnitOfMeasures (
-  createdAt TIMESTAMP_TEXT,
-  createdBy NVARCHAR(255),
-  modifiedAt TIMESTAMP_TEXT,
-  modifiedBy NVARCHAR(255),
-  ID NVARCHAR(2) NOT NULL,
-  Description NVARCHAR(255),
-  PRIMARY KEY(ID)
-);
-
-CREATE TABLE com_dev_DimensionUnits (
-  createdAt TIMESTAMP_TEXT,
-  createdBy NVARCHAR(255),
-  modifiedAt TIMESTAMP_TEXT,
-  modifiedBy NVARCHAR(255),
-  ID NVARCHAR(2) NOT NULL,
-  Description NVARCHAR(255),
-  PRIMARY KEY(ID)
-);
-
-CREATE TABLE com_dev_Months (
+CREATE TABLE com_dev_sales_Months (
   createdAt TIMESTAMP_TEXT,
   createdBy NVARCHAR(255),
   modifiedAt TIMESTAMP_TEXT,
@@ -121,20 +135,7 @@ CREATE TABLE com_dev_Months (
   PRIMARY KEY(ID)
 );
 
-CREATE TABLE com_dev_ProductReview (
-  ID NVARCHAR(36) NOT NULL,
-  createdAt TIMESTAMP_TEXT,
-  createdBy NVARCHAR(255),
-  modifiedAt TIMESTAMP_TEXT,
-  modifiedBy NVARCHAR(255),
-  Name NVARCHAR(255),
-  Raiting INTEGER,
-  Comment NVARCHAR(255),
-  Product_ID NVARCHAR(36),
-  PRIMARY KEY(ID)
-);
-
-CREATE TABLE com_dev_SalesData (
+CREATE TABLE com_dev_sales_SalesData (
   ID NVARCHAR(36) NOT NULL,
   createdAt TIMESTAMP_TEXT,
   createdBy NVARCHAR(255),
@@ -148,7 +149,25 @@ CREATE TABLE com_dev_SalesData (
   PRIMARY KEY(ID)
 );
 
-CREATE TABLE com_dev_Product_texts (
+CREATE TABLE com_dev_training_Order (
+  ClientEmail NVARCHAR(65) NOT NULL,
+  FirstName NVARCHAR(30),
+  LastName NVARCHAR(30),
+  CreatedOn DATE_TEXT,
+  Reviewed BOOLEAN,
+  Approved BOOLEAN,
+  Country_code NVARCHAR(3),
+  PRIMARY KEY(ClientEmail)
+);
+
+CREATE TABLE sap_common_Countries (
+  name NVARCHAR(255),
+  descr NVARCHAR(1000),
+  code NVARCHAR(3) NOT NULL,
+  PRIMARY KEY(code)
+);
+
+CREATE TABLE com_dev_materials_Product_texts (
   locale NVARCHAR(14) NOT NULL,
   ID NVARCHAR(36) NOT NULL,
   Name NVARCHAR(255) NOT NULL,
@@ -156,35 +175,35 @@ CREATE TABLE com_dev_Product_texts (
   PRIMARY KEY(locale, ID)
 );
 
-CREATE TABLE com_dev_Category_texts (
+CREATE TABLE com_dev_materials_Category_texts (
   locale NVARCHAR(14) NOT NULL,
   ID NVARCHAR(1) NOT NULL,
   Name NVARCHAR(255),
   PRIMARY KEY(locale, ID)
 );
 
-CREATE TABLE com_dev_Currencies_texts (
+CREATE TABLE com_dev_materials_Currencies_texts (
   locale NVARCHAR(14) NOT NULL,
   ID NVARCHAR(3) NOT NULL,
   Description NVARCHAR(255),
   PRIMARY KEY(locale, ID)
 );
 
-CREATE TABLE com_dev_UnitOfMeasures_texts (
+CREATE TABLE com_dev_materials_UnitOfMeasures_texts (
   locale NVARCHAR(14) NOT NULL,
   ID NVARCHAR(2) NOT NULL,
   Description NVARCHAR(255),
   PRIMARY KEY(locale, ID)
 );
 
-CREATE TABLE com_dev_DimensionUnits_texts (
+CREATE TABLE com_dev_materials_DimensionUnits_texts (
   locale NVARCHAR(14) NOT NULL,
   ID NVARCHAR(2) NOT NULL,
   Description NVARCHAR(255),
   PRIMARY KEY(locale, ID)
 );
 
-CREATE TABLE com_dev_Months_texts (
+CREATE TABLE com_dev_sales_Months_texts (
   locale NVARCHAR(14) NOT NULL,
   ID NVARCHAR(2) NOT NULL,
   Description NVARCHAR(255),
@@ -192,7 +211,21 @@ CREATE TABLE com_dev_Months_texts (
   PRIMARY KEY(locale, ID)
 );
 
-CREATE VIEW localized_com_dev_Product AS SELECT
+CREATE TABLE sap_common_Countries_texts (
+  locale NVARCHAR(14) NOT NULL,
+  name NVARCHAR(255),
+  descr NVARCHAR(1000),
+  code NVARCHAR(3) NOT NULL,
+  PRIMARY KEY(locale, code)
+);
+
+CREATE VIEW com_dev_report_AvarageRating AS SELECT
+  ProductReview_0.Product_ID AS productId,
+  avg(ProductReview_0.Raiting) AS AverageRating
+FROM com_dev_materials_ProductReview AS ProductReview_0
+GROUP BY ProductReview_0.Product_ID;
+
+CREATE VIEW localized_com_dev_materials_Product AS SELECT
   L_0.createdAt,
   L_0.createdBy,
   L_0.modifiedAt,
@@ -204,49 +237,50 @@ CREATE VIEW localized_com_dev_Product AS SELECT
   L_0.DiscontinuedDate,
   L_0.Price,
   L_0.Height,
-  L_0.Weight,
+  L_0.Width,
   L_0.Depth,
   L_0.Quantity,
   L_0.Supplier_ID,
   L_0.UnitOfMeasures_ID,
   L_0.Currency_ID,
   L_0.DimensionUnit_ID,
-  L_0.Category_ID
-FROM (com_dev_Product AS L_0 LEFT JOIN com_dev_Product_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
+  L_0.Category_ID,
+  L_0.AvgReview
+FROM (com_dev_materials_Product AS L_0 LEFT JOIN com_dev_materials_Product_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
 
-CREATE VIEW localized_com_dev_Category AS SELECT
+CREATE VIEW localized_com_dev_materials_Category AS SELECT
   L_0.createdAt,
   L_0.createdBy,
   L_0.modifiedAt,
   L_0.modifiedBy,
   L_0.ID,
   coalesce(localized_1.Name, L_0.Name) AS Name
-FROM (com_dev_Category AS L_0 LEFT JOIN com_dev_Category_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
+FROM (com_dev_materials_Category AS L_0 LEFT JOIN com_dev_materials_Category_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
 
-CREATE VIEW localized_com_dev_Currencies AS SELECT
+CREATE VIEW localized_com_dev_materials_Currencies AS SELECT
   L_0.ID,
   coalesce(localized_1.Description, L_0.Description) AS Description
-FROM (com_dev_Currencies AS L_0 LEFT JOIN com_dev_Currencies_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
+FROM (com_dev_materials_Currencies AS L_0 LEFT JOIN com_dev_materials_Currencies_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
 
-CREATE VIEW localized_com_dev_UnitOfMeasures AS SELECT
+CREATE VIEW localized_com_dev_materials_UnitOfMeasures AS SELECT
   L_0.createdAt,
   L_0.createdBy,
   L_0.modifiedAt,
   L_0.modifiedBy,
   L_0.ID,
   coalesce(localized_1.Description, L_0.Description) AS Description
-FROM (com_dev_UnitOfMeasures AS L_0 LEFT JOIN com_dev_UnitOfMeasures_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
+FROM (com_dev_materials_UnitOfMeasures AS L_0 LEFT JOIN com_dev_materials_UnitOfMeasures_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
 
-CREATE VIEW localized_com_dev_DimensionUnits AS SELECT
+CREATE VIEW localized_com_dev_materials_DimensionUnits AS SELECT
   L_0.createdAt,
   L_0.createdBy,
   L_0.modifiedAt,
   L_0.modifiedBy,
   L_0.ID,
   coalesce(localized_1.Description, L_0.Description) AS Description
-FROM (com_dev_DimensionUnits AS L_0 LEFT JOIN com_dev_DimensionUnits_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
+FROM (com_dev_materials_DimensionUnits AS L_0 LEFT JOIN com_dev_materials_DimensionUnits_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
 
-CREATE VIEW localized_com_dev_Months AS SELECT
+CREATE VIEW localized_com_dev_sales_Months AS SELECT
   L_0.createdAt,
   L_0.createdBy,
   L_0.modifiedAt,
@@ -254,9 +288,37 @@ CREATE VIEW localized_com_dev_Months AS SELECT
   L_0.ID,
   coalesce(localized_1.Description, L_0.Description) AS Description,
   coalesce(localized_1.ShortDescription, L_0.ShortDescription) AS ShortDescription
-FROM (com_dev_Months AS L_0 LEFT JOIN com_dev_Months_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
+FROM (com_dev_sales_Months AS L_0 LEFT JOIN com_dev_sales_Months_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = session_context( '$user.locale' ));
 
-CREATE VIEW localized_com_dev_OrderItem AS SELECT
+CREATE VIEW localized_sap_common_Countries AS SELECT
+  coalesce(localized_1.name, L_0.name) AS name,
+  coalesce(localized_1.descr, L_0.descr) AS descr,
+  L_0.code
+FROM (sap_common_Countries AS L_0 LEFT JOIN sap_common_Countries_texts AS localized_1 ON localized_1.code = L_0.code AND localized_1.locale = session_context( '$user.locale' ));
+
+CREATE VIEW localized_com_dev_materials_StockAvailibity AS SELECT
+  L.createdAt,
+  L.createdBy,
+  L.modifiedAt,
+  L.modifiedBy,
+  L.ID,
+  L.Description,
+  L.Product_ID
+FROM com_dev_materials_StockAvailibity AS L;
+
+CREATE VIEW localized_com_dev_materials_ProductReview AS SELECT
+  L.ID,
+  L.createdAt,
+  L.createdBy,
+  L.modifiedAt,
+  L.modifiedBy,
+  L.Name,
+  L.Raiting,
+  L.Comment,
+  L.Product_ID
+FROM com_dev_materials_ProductReview AS L;
+
+CREATE VIEW localized_com_dev_sales_OrderItem AS SELECT
   L.ID,
   L.createdAt,
   L.createdBy,
@@ -265,9 +327,9 @@ CREATE VIEW localized_com_dev_OrderItem AS SELECT
   L.Order_ID,
   L.Product_ID,
   L.Quantity
-FROM com_dev_OrderItem AS L;
+FROM com_dev_sales_OrderItem AS L;
 
-CREATE VIEW localized_com_dev_Supplier AS SELECT
+CREATE VIEW localized_com_dev_sales_Supplier AS SELECT
   L.ID,
   L.createdAt,
   L.createdBy,
@@ -282,31 +344,9 @@ CREATE VIEW localized_com_dev_Supplier AS SELECT
   L.Email,
   L.Phone,
   L.Fax
-FROM com_dev_Supplier AS L;
+FROM com_dev_sales_Supplier AS L;
 
-CREATE VIEW localized_com_dev_StockAvailibity AS SELECT
-  L.createdAt,
-  L.createdBy,
-  L.modifiedAt,
-  L.modifiedBy,
-  L.ID,
-  L.Description,
-  L.Product_ID
-FROM com_dev_StockAvailibity AS L;
-
-CREATE VIEW localized_com_dev_ProductReview AS SELECT
-  L.ID,
-  L.createdAt,
-  L.createdBy,
-  L.modifiedAt,
-  L.modifiedBy,
-  L.Name,
-  L.Raiting,
-  L.Comment,
-  L.Product_ID
-FROM com_dev_ProductReview AS L;
-
-CREATE VIEW localized_com_dev_SalesData AS SELECT
+CREATE VIEW localized_com_dev_sales_SalesData AS SELECT
   L.ID,
   L.createdAt,
   L.createdBy,
@@ -317,9 +357,19 @@ CREATE VIEW localized_com_dev_SalesData AS SELECT
   L.Product_ID,
   L.Currency_ID,
   L.DeliveryMonth_ID
-FROM com_dev_SalesData AS L;
+FROM com_dev_sales_SalesData AS L;
 
-CREATE VIEW localized_com_dev_Order AS SELECT
+CREATE VIEW localized_com_dev_training_Order AS SELECT
+  L.ClientEmail,
+  L.FirstName,
+  L.LastName,
+  L.CreatedOn,
+  L.Reviewed,
+  L.Approved,
+  L.Country_code
+FROM com_dev_training_Order AS L;
+
+CREATE VIEW localized_com_dev_sales_Order AS SELECT
   L.ID,
   L.createdAt,
   L.createdBy,
@@ -327,5 +377,53 @@ CREATE VIEW localized_com_dev_Order AS SELECT
   L.modifiedBy,
   L.Date,
   L.Customer
-FROM com_dev_Order AS L;
+FROM com_dev_sales_Order AS L;
+
+CREATE VIEW com_dev_report_Products AS SELECT
+  Product_0.createdAt,
+  Product_0.createdBy,
+  Product_0.modifiedAt,
+  Product_0.modifiedBy,
+  Product_0.ID,
+  Product_0.Name,
+  Product_0.Description,
+  Product_0.ReleasedDate,
+  Product_0.DiscontinuedDate,
+  Product_0.Price,
+  Product_0.Height,
+  Product_0.Width,
+  Product_0.Depth,
+  Product_0.Quantity,
+  Product_0.Supplier_ID,
+  Product_0.UnitOfMeasures_ID,
+  Product_0.Currency_ID,
+  Product_0.DimensionUnit_ID,
+  Product_0.Category_ID,
+  Product_0.AvgReview,
+  ToAverageRating_1.AverageRating AS Rating
+FROM (com_dev_materials_Product AS Product_0 LEFT JOIN com_dev_report_AvarageRating AS ToAverageRating_1 ON ToAverageRating_1.productId = Product_0.ID);
+
+CREATE VIEW localized_com_dev_report_Products AS SELECT
+  Product_0.createdAt,
+  Product_0.createdBy,
+  Product_0.modifiedAt,
+  Product_0.modifiedBy,
+  Product_0.ID,
+  Product_0.Name,
+  Product_0.Description,
+  Product_0.ReleasedDate,
+  Product_0.DiscontinuedDate,
+  Product_0.Price,
+  Product_0.Height,
+  Product_0.Width,
+  Product_0.Depth,
+  Product_0.Quantity,
+  Product_0.Supplier_ID,
+  Product_0.UnitOfMeasures_ID,
+  Product_0.Currency_ID,
+  Product_0.DimensionUnit_ID,
+  Product_0.Category_ID,
+  Product_0.AvgReview,
+  ToAverageRating_1.AverageRating AS Rating
+FROM (localized_com_dev_materials_Product AS Product_0 LEFT JOIN com_dev_report_AvarageRating AS ToAverageRating_1 ON ToAverageRating_1.productId = Product_0.ID);
 

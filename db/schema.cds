@@ -2,7 +2,8 @@ namespace com.dev;
 
 using {
     cuid,
-    managed
+    managed,
+    Country
 } from '@sap/cds/common';
 
 context materials {
@@ -141,6 +142,8 @@ context training {
         CreatedOn: Date;
         Reviewed: Boolean;
         Approved: Boolean;
+        Country: Country;
+        Status: String(1);
         
     }
 }
