@@ -23,11 +23,13 @@ context materials {
         Currency         : Association to Currencies;
         DimensionUnit    : Association to DimensionUnits;
         Category         : Association to Category;
+        StockAvailibity  : Association to StockAvailibity;
         SalesData        : Association to many sales.SalesData
                                on SalesData.Product = $self;
         Reviews          : Association to many ProductReview
                                on Reviews.Product = $self;
-        AvgReview        : Decimal(16, 2)
+        AvgReview        : Decimal(16, 2);
+
 
     }
 

@@ -18,14 +18,22 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/eslint-plugin-cds": "^3",
-    "eslint": "^9"
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-specification": "^1.120.13",
+    "@sapui5/ts-types": "^1.92.2",
+    "cds-swagger-ui-express": "^0.8.0",
+    "eslint": "^7.32.0"
   },
   "scripts": {
-    "start": "cds watch"
+    "start": "cds watch",
+    "watch-product": "cds watch --open product/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "protocols": {
-      "graphql": { "path": "/graphql", "impl": "@cap-js/graphql" }
+      "graphql": {
+        "path": "/graphql",
+        "impl": "@cap-js/graphql"
+      }
     },
     "requires": {
       "sapBackend": {
@@ -38,5 +46,8 @@
         }
       }
     }
-  }
+  },
+  "sapux": [
+    "app/product"
+  ]
 }

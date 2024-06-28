@@ -11,6 +11,10 @@ cds.on("bootstrap", (app) =>{
     });
 });
 if(process.env.NODE_ENV !== "production"){
+    const swagger = require("cds-swagger-ui-express");
+    cds.on("bootstrap", (app) =>{
+        app.use(swagger())
+    })
     require("dotenv").config();
 }
 

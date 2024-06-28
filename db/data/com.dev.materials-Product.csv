@@ -1,6 +1,6 @@
-ID,Name,Description,ReleasedDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity,Supplier_ID
-"b1c2d345-6789-01bc-def0-1234567890ab","Alfa Widget","Descripción del Alfa Widget","2021-01-15T10:00:00Z",,150.50,10.5,1.2,5.0,100.0,
-"c2d3e456-7890-12cd-ef01-2345678901bc","Beta Gadget","Descripción del Beta Gadget","2021-03-20T11:00:00Z",,99.99,15.0,1.5,4.0,200.0,"af3d3456-7890-12cd-ef01-3456789012cd"
-"d3e4f567-8901-23de-f012-3456789012cd","Gamma Device","Descripción del Gamma Device","2021-05-25T12:00:00Z",,75.75,8.0,1.0,3.5,150.0,"cf5f5678-9012-34ef-0123-5678901234ef"
-"e4f50678-9012-34ef-0123-4567890123de","Delta Tool","Descripción del Delta Tool","2021-07-30T13:00:00Z",,120.00,12.0,1.8,6.0,250.0,"cf5f5678-9012-34ef-0123-5678901234ef"
-"f5067890-1234-45ef-0123-5678901234ef","Omega Instrument","Descripción del Omega Instrument","2021-09-15T14:00:00Z",,200.25,20.0,2.0,7.0,300.0,
+ID,Name,Description,ReleasedDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity,Supplier_ID,Currency_ID,Category_ID,StockAvailibity_ID
+"b1c2d345-6789-01bc-def0-1234567890ab","Alfa Widget","Descripción del Alfa Widget","2021-01-15T10:00:00Z",,150.50,10.5,1.2,5.0,100.0,"bf4e4567-8901-23de-f012-4567890123de","USD","E",1
+"c2d3e456-7890-12cd-ef01-2345678901bc","Beta Gadget","Descripción del Beta Gadget","2021-03-20T11:00:00Z",,99.99,15.0,1.5,4.0,200.0,"af3d3456-7890-12cd-ef01-3456789012cd","JPY","B",1
+"d3e4f567-8901-23de-f012-3456789012cd","Gamma Device","Descripción del Gamma Device","2021-05-25T12:00:00Z",,75.75,8.0,1.0,3.5,150.0,"cf5f5678-9012-34ef-0123-5678901234ef","AUD","A",2
+"e4f50678-9012-34ef-0123-4567890123de","Delta Tool","Descripción del Delta Tool","2021-07-30T13:00:00Z",,120.00,12.0,1.8,6.0,250.0,"cf5f5678-9012-34ef-0123-5678901234ef","USD","A",3
+"f5067890-1234-45ef-0123-5678901234ef","Omega Instrument","Descripción del Omega Instrument","2021-09-15T14:00:00Z",,200.25,20.0,2.0,7.0,300.0,8e2b1234-5678-90ab-cdef-1234567890ab,"AUD","C",5
